@@ -17,7 +17,7 @@ PNG.decode("shipmask.png", function (data) {
   }
 
   fs.writeFileSync(
-    "../frontend/src/constants/constants.js",
+    "frontend/src/constants/constants.js",
     "export const LEVEL_BOUNDS =" + JSON.stringify(result)
   );
 });
