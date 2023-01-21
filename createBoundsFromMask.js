@@ -10,9 +10,14 @@ PNG.decode("shipmask.png", function (data) {
     if (data[i] === 0 && data[i + 1] === 255 && data[i + 2] === 0) {
       if (result[row]) {
         result[row].push((i / 4) % IMG_WIDTH);
-      } else{
-        result[row] = [(i / 4) % IMG_WIDTH]
+      } else {
+        result[row] = [(i / 4) % IMG_WIDTH];
       }
     }
   }
+
+  fs.writeFileSync(
+    "../frontend/src/constants/constants.js",
+    "export const LEVEL_BOUNDS =" + JSON.stringify(result)
+  );
 });
