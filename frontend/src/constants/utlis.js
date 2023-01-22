@@ -57,3 +57,4 @@ export const movementAnimation = (keys, player)=>{
     player.stop("running")
   }
 }
+
