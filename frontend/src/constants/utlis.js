@@ -21,4 +21,30 @@ export const movePlayer = (keys, player) => {
     playerMoved = true;
     player.y = player - PLAYER_SPEED;
   }
+
+  if (
+    keys.includes("ArrowDown") &&
+    isWithinMovementBoundaries(absPlayerX, absPlayerY + PLAYER_SPEED)
+  ) {
+    playerMoved = true;
+    player.y = player + PLAYER_SPEED;
+  }
+  if (
+    keys.includes("ArrowLeft") &&
+    isWithinMovementBoundaries(absPlayerX, absPlayerY + PLAYER_SPEED)
+  ) {
+    playerMoved = true;
+    player.y = player.x - PLAYER_SPEED;
+    player.flipX = true;
+  }
+  if (
+    keys.includes("ArrowRight") &&
+    isWithinMovementBoundaries(absPlayerX, absPlayerY + PLAYER_SPEED)
+  ) {
+    playerMoved = true;
+    player.y = player.x + PLAYER_SPEED;
+    player.flipX = false;
+  }
+
+  return playerMoved;
 };
